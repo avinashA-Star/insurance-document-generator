@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Insurance Document Generator</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;600&family=Newsreader:opsz,wght@6..72,400;6..72,600&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <h1>Insurance Document Generator</h1>
+  <p>Fill in the details, pick a document, then print or save it as PDF.</p>
+</header>
+<main>
+  <form id="f" autocomplete="off" onsubmit="return false">
+    <label>Insurance type
+      <select id="type">
+        <option value="Health">Health</option>
+        <option value="Motor">Motor</option>
+        <option value="Life">Life</option>
+        <option value="Home">Home</option>
+      </select>
+    </label>
+    <label>Policyholder name <input id="name" value="Ananya Reddy"></label>
+    <div class="row">
+      <label>Date of birth <input id="dob" type="date" value="1992-04-18"></label>
+      <label>Phone <input id="phone" value="+91 98480 12345"></label>
+    </div>
+    <label>Email <input id="email" type="email" value="ananya@example.com"></label>
+    <label>Address <textarea id="addr" rows="2">Banjara Hills, Hyderabad, Telangana 500034</textarea></label>
+    <div class="row">
+      <label>Sum insured (₹) <input id="sum" type="number" min="10000" step="10000" value="1000000"></label>
+      <label>Term (years) <input id="term" type="number" min="1" max="30" value="1"></label>
+    </div>
+    <div class="row">
+      <label>Start date <input id="start" type="date"></label>
+      <label>Nominee <input id="nominee" value="Karthik Reddy"></label>
+    </div>
+    <label id="extraWrap">Vehicle / property details <input id="extra" value=""></label>
+    <div class="actions">
+      <button type="button" id="print">Print / save as PDF</button>
+      <button type="button" class="ghost" id="newno">New policy number</button>
+    </div>
+  </form>
+
+  <section>
+    <div class="tabs" role="group" aria-label="Document type">
+      <button type="button" data-doc="cert" aria-pressed="true">Policy certificate</button>
+      <button type="button" data-doc="quote" aria-pressed="false">Quotation</button>
+      <button type="button" data-doc="claim" aria-pressed="false">Claim form</button>
+    </div>
+    <div class="wrap"><article class="doc" id="doc" aria-live="polite"></article></div>
+  </section>
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
